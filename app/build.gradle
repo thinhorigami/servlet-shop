@@ -21,9 +21,6 @@ dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
 
-        // https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc
-    implementation group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '11.2.3.jre17'
-
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.1-jre'
 
@@ -40,13 +37,15 @@ dependencies {
     implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '3.0.1'
 
     // https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core
-    implementation 'org.hibernate.orm:hibernate-core:6.1.7.Final'
+    implementation 'org.hibernate.orm:hibernate-core:6.2.0.CR4'
 
+    // https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc
+    implementation 'com.microsoft.sqlserver:mssql-jdbc:12.2.0.jre11'
 }
 
 application {
     // Define the main class for the application.
-    mainClass = 'io.ntt.App'
+    mainClass = 'io.ntt.controller.App'
 }
 
 tasks.named('test') {

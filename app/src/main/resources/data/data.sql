@@ -6,6 +6,5 @@ CREATE DATABASE ass_java4;
 GO
 
 CREATE TABLE product (
-  INT id,
-  NVARCHAR(1000) _name,
+  id INT PRIMARY KEY IDENTITY(1, 1)
 )

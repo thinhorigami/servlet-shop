@@ -3,12 +3,15 @@
  */
 package io.ntt.controller;
 
+import io.ntt.lib.DataConnect;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        var s_f = new DataConnect();
+        System.out.println(s_f.gitSessionFactory().toString());
     }
 }
