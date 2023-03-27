@@ -5,10 +5,6 @@ package io.ntt;
 
 import org.junit.jupiter.api.Test;
 
-import io.ntt.controller.App;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 class AppTest {
     @Test void appHasAGreeting() {
         

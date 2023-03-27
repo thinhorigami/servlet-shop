@@ -5,7 +5,6 @@ package io.ntt.controller;
 
 import java.io.IOException;
 
-import io.ntt.lib.DataConnect;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
