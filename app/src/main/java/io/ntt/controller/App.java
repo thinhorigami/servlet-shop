@@ -3,15 +3,21 @@
  */
 package io.ntt.controller;
 
+import java.io.IOException;
+
 import io.ntt.lib.DataConnect;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
-
-    public static void main(String[] args) {
-        var s_f = new DataConnect();
-        System.out.println(s_f.gitSessionFactory().toString());
+@WebServlet(name = "App", urlPatterns = {"/home"})
+public class App extends HttpServlet {
+    
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("/view/product.jsp").forward(req, resp);
+        super.doGet(req, resp);
     }
 }
