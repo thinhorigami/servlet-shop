@@ -9,7 +9,7 @@
             com.microsoft.sqlserver.jdbc.SQLServerDriver
     </property>
 
-    <property name = "hibernate.connection.url"> jdbc:sqlserver://localhost:1433;DatabaseName=master;TrustServerCertificate=true
+    <property name = "hibernate.connection.url"> jdbc:sqlserver://localhost:1433;DatabaseName=servlet;TrustServerCertificate=true
     </property>
 
     <!--<database name="PhanMem_BanGiay_Limited">-->
@@ -18,9 +18,9 @@
             sa
     </property>
 
-    <property name = "hibernate.connection.password">
-            thinh123
-    </property>
+        <property name = "hibernate.connection.password">
+        thinh123
+</property>
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
     <property name="hibernate.hbm2ddl.auto">update</property>

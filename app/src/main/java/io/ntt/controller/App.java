@@ -5,18 +5,31 @@ package io.ntt.controller;
 
 import java.io.IOException;
 
+import io.ntt.model.User;
+import io.ntt.service.ICommonService;
+import io.ntt.service.IService;
+import io.ntt.service.UserService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "App", urlPatterns = {"/home"})
+@WebServlet(name = "App", urlPatterns = {"/home", "/"})
 public class App extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/view/product.jsp").forward(req, resp);
-        super.doGet(req, resp);
+        IService<User> user_service = new UserService();
+        User user = new User();
+        user.setName("thinhorigamu");
+        user.setEmail("nguyen.tien.thinh.thinhorigami@gmail.com");
+        user.setPassword("123");
+        user_service.add(user).ifPresentOrElse((o) -> {
+            System.out.println("insert " + o.getEmail());
+        }, () -> {
+            System.out.println("insert falied");
+        });
+        req.getRequestDispatcher("view/home.jsp").forward(req, resp);
     }
 }
