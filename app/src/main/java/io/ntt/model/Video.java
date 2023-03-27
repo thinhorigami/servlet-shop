@@ -12,26 +12,26 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity()
-@Table(name = "_Book")
-public class Book {
+@Table(name = "_video")
+public class Video {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(name = "_id_book", unique = true, nullable = false)
+  @Column(name = "_id_video", unique = true, nullable = false)
   private String isBook;
 
   @Column(name = "_name", nullable = false)
   private String name;
 
-  @OneToMany(cascade = CascadeType.ALL, mappedBy = "book")
-  private Collection<BookDetail> bookDetail;
-
-  public Book() {
+  @Column(name = "link")
+  private String link;
+  
+  public Video() {
   }
 
-  public Book(Long id, String isBook, String name) {
+  public Video(Long id, String isBook, String name) {
     this.id = id;
     this.isBook = isBook;
     this.name = name;

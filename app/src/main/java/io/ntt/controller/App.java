@@ -6,7 +6,6 @@ package io.ntt.controller;
 import java.io.IOException;
 
 import io.ntt.model.User;
-import io.ntt.service.ICommonService;
 import io.ntt.service.IService;
 import io.ntt.service.UserService;
 import jakarta.servlet.ServletException;

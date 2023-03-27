@@ -1,5 +1,6 @@
 package io.ntt.service;
 
+import java.util.Collection;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -32,8 +33,8 @@ public class ICommonService<T> implements IService<T> {
   }
 
   @Override
-  public Iterable<T> getAll() {
-    var iter = (Iterable<T>)this.session
+  public Collection<T> getAll() {
+    var iter = (Collection<T>)this.session
       .createQuery("FROM User", User.class)
       .getResultList();
     return iter;
@@ -41,14 +42,28 @@ public class ICommonService<T> implements IService<T> {
 
   @Override
   public Optional<T> remove(T _value) {
-    this.session.remove(_value);
-    return Optional.ofNullable(_value);    
+    var tran = this.session.beginTransaction();
+    try {
+      this.session.remove(_value);
+      tran.commit();
+      return Optional.of(_value);
+    } catch (Exception e) {
+      tran.rollback();
+      return Optional.empty();
+    }
   }
 
   @Override
   public Optional<T> set(T _value) {
-    this.session.merge(_value);
-    return Optional.ofNullable(_value);
+    var tran = this.session.beginTransaction();
+    try {
+      this.session.persist(_value);
+      tran.commit();
+      return Optional.of(_value);
+    } catch (Exception e) {
+      tran.rollback();
+      return Optional.empty();
+    }
   }
 
   @Override

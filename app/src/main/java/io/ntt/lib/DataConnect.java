@@ -3,9 +3,7 @@ package io.ntt.lib;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import io.ntt.model.Book;
-import io.ntt.model.BookDetail;
-import io.ntt.model.Catagory;
+import io.ntt.model.Video;
 import io.ntt.model.User;
 
 public class DataConnect {
@@ -18,9 +16,7 @@ public class DataConnect {
       .configure(this.getClass()
         .getClassLoader()
         .getResource("hibernate.cfg.xml"))
-        .addAnnotatedClass(Book.class)
-        .addAnnotatedClass(BookDetail.class)
-        .addAnnotatedClass(Catagory.class)
+        .addAnnotatedClass(Video.class)
         .addAnnotatedClass(User.class)
         ;
     this.session_fractory = config.buildSessionFactory();
