@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "App", urlPatterns = {"/home", "/"})
+@WebServlet(name = "App", urlPatterns = {"/"})
 public class App extends HttpServlet {
     
     @Override
@@ -29,6 +29,6 @@ public class App extends HttpServlet {
         }, () -> {
             System.out.println("insert falied");
         });
-        req.getRequestDispatcher("view/home.jsp").forward(req, resp);
+        resp.sendRedirect("/app/login");
     }
 }

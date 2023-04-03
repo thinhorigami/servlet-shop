@@ -2,7 +2,6 @@ package io.ntt.lib;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
 import io.ntt.model.Video;
 import io.ntt.model.User;
 

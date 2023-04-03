@@ -16,6 +16,13 @@
           "iframe[allow]"
         ]
       }
+    ],
+    "button-type": "off",
+    "axe/name-role-value": [
+      "default",
+      {
+        "link-name": "off"
+      }
     ]
   }
 }

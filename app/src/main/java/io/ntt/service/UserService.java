@@ -32,4 +32,11 @@ public class UserService extends ICommonService<User> {
       return Optional.empty();
     }
   }
+  
+  public Optional<User> Register(User _user) {
+      if (this.getByEmail(_user.getEmail()).isPresent()) {
+          return Optional.empty();
+      }
+      return super.add(_user);
+  }
 }

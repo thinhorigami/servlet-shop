@@ -38,7 +38,17 @@
             <a href="#">Home</a>
           </li>
           <li class="group relative text-gray-300 mr-12">
-            <a class="hover:text-blue-300" href="#">user</a>
+            
+            <c:if test="${empty user}">
+              <a class="hover:text-blue-300" href="#">User</a>
+            </c:if>
+
+            <c:if test="${not empty user}">
+              <a class="hover:text-blue-300" href="#">
+                <c:out value="${user}"/>
+              </a>
+            </c:if>
+
             <div
               class="group-hover:block shadow-2xl absolute hidden w-32 bg-slate-900 rounded-md"
             >
@@ -47,7 +57,7 @@
                   <a href="login">Login</a>
                 </li>
                 <li class="p-2 hover:text-blue-300">
-                  <a href="#">Sign in</a>
+                  <a href="register">Sign in</a>
                 </li>
                 <li class="p-2 hover:text-blue-300">
                   <a href="app">Logout</a>
@@ -72,8 +82,10 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
         ></iframe>
-        <div class="pt-5 pb-2">
-          <i class="fa-regular fa-heart fa-xl"></i>
+        <div class="pt-5 pb-2 ">
+          <div class="w-fit hover:bg-rose-500">
+            <i class="fa-regular fa-heart fa-xl"></i>
+          </div>
         </div>
       </div>
       <div
